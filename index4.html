@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+	Author by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <title>Mehtap Diy</title>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="site-navigation">
+        <div class="site-navigation-inner site-container">
+
+            <div class="main-navigation">
+                <ul class="main-navigation__ul">
+                    <li><a href="index.html">Ben Kimim</a></li>
+                    <li><a href="index2.html">İletişim Bilgilerim</a></li>
+                    <li><a href="index3.html">Hobilerim</a></li>
+                    <li><a href="index4.html">Düşünceler</a></li>
+                    <li><a href="index5.html">Hesaplama Araçlarım</a></li>
+                </ul>
+            </div>
+            <div id="myBtn" class="burger-container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <script>
+                function myFunction(x) {
+                    x.classList.toggle("change");
+                }
+            </script>
+
+        </div>
+    </nav>
+    <!-- Navigation end -->
+
+    <!-- Blog -->
+    <section class="fh5co-blog">
+        <div class="site-container">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <table id="liste">
+                <tr>
+                    <th>Add</th>
+                    <th>Soyad</th>
+                    <th>Düşünceleriniz</th>
+                </tr>
+                <tr>
+                    <td>Ahmet</td>
+                    <td>Yaşar</td>
+                    <td>Gayet Sade Ve İçten Bir Blog Olduğunu Düşünüyorum</td>
+                </tr>
+                <tr>
+                    <td>Selin</td>
+                    <td>Avşar</td>
+                    <td>Site İçeriklerine Bayıldım</td>
+                </tr>
+            </table>
+            <br>  <input placeholder="Adınız" id="ad" type="text">
+            <br>
+            <br>
+            <input placeholder="Soyadınız" id="soyad" type="text">
+            <br>
+            <br>
+            <input placeholder="Düşünceleriniz" id="dusunce" type="text">
+            <br>
+            <br>
+            <button onclick="add(event)" type="button" class="btn btn-secondary">Kaydet</button>
+            <hr>
+            <br>
+
+        </div>
+    </section>
+    <!-- Blog end -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
+<script>
+    function add(event) {
+        event.preventDefault();
+        var ad = document.getElementById("ad").value;
+        var soyad = document.getElementById("soyad").value;
+        var dusunce = document.getElementById("dusunce").value;
+        if (ad.length < 0 || soyad.length < 0 || dusunce.length < 0) {
+            return alert("Kutuları Doldurunuz")
+        }
+        var tad = document.createElement("td");
+        var tsoyad = document.createElement("td");
+        var tdusunce = document.createElement("td");
+
+        tad.textContent = ad;
+        tsoyad.textContent = soyad;
+        tdusunce.textContent = dusunce;
+
+        var tr = document.createElement("tr");
+
+        tr.appendChild(tad);
+        tr.appendChild(tsoyad);
+        tr.appendChild(tdusunce);
+
+        liste.appendChild(tr)
+    }
+</script>
+<style>
+    table,
+    tr,
+    td,
+    th {
+        border-collapse: collapse;
+        border: solid 1px black;
+        background-color: rgb(209, 175, 175);
+        color: white;
+        padding: 5px;
+    }
+
+    table {
+        padding-top: 100px;
+        margin: auto;
+        width: 300px;
+        height: 100px;
+    }
+
+    input {
+        font-size: 15px;
+    }
+    td {
+        text-align: center;
+    }
+
+    th {
+        font-size: 30px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+    body {
+        
+        background-image: url(./images/about-me-bckg.jpg);
+       }
+</style>

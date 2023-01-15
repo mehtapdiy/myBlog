@@ -1,0 +1,381 @@
+<!doctype html>
+<!--
+	Author by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <title>Mehtap Diy</title>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="site-navigation">
+        <div class="site-navigation-inner site-container">
+
+            <div class="main-navigation">
+                <ul class="main-navigation__ul">
+                    <li><a href="index.html">Ben Kimim</a></li>
+                    <li><a href="index2.html">İletişim Bilgilerim</a></li>
+                    <li><a href="index3.html">Hobilerim</a></li>
+                    <li><a href="index4.html">Düşünceler</a></li>
+                    <li><a href="index5.html">Hesaplama Araçlarım</a></li>
+                </ul>
+            </div>
+            <div id="myBtn" class="burger-container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <script>
+                function myFunction(x) {
+                    x.classList.toggle("change");
+                }
+            </script>
+
+        </div>
+    </nav>
+    <!-- Navigation end -->
+
+    <!-- Blog -->
+    <section class="fh5co-blog">
+        <div class="row">
+            <div class="col-sm-6">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <span style="color: red;">İlk Değeri Giriniz :</span> <input type="number" id="sayi1">
+                <br>
+                <br>
+                <span style="color: red;">İkinci Değeri Giriniz :</span> <input type="number" id="sayi2">
+                <br>
+                <br>
+                <select id="islem">
+                    <option value="islemseciniz" selected>İşlem Seçiniz</option>
+                    <option value="topla">Topla</option>
+                    <option value="cikar">Çıkar</option>
+                    <option value="carp">Çarp</option>
+                    <option value="bol">Böl</option>
+                </select>
+                <br>
+                <br>
+                <button onclick="Hesapla()"> Hesapla</button>
+                <br>
+                <div>
+                    <h3 style="color: red;" id="sonuc"></h3>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <span style="color: red;">Dolar Kurunu Giriniz :</span> <input type="number" id="kur">
+                <br>
+                <br>
+                <span style="color: red;">Kaç Dolar Çevirilecek :</span> <input type="number" id="dolar">
+                <br>
+                <br>
+                <button onclick="Dolar()">Dönüştür</button>
+                <br>
+                <div>
+                    <h3 style="color: red;" id="sonuc2"></h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form>
+                <div class="base">
+                    <div class="enter">
+                        <h4>Yaş Hesaplayıcı</h4>
+                    </div>
+                    <div class="block">
+                        <p class="title">Gün</p>
+                        <input type="text" name="date" id="date" placeholder="gg" required="required" minlength="1"
+                            maxlength="2" />
+                    </div>
+                    <div class="block">
+                        <p class="title">Ay</p>
+                        <input type="text" name="month" id="month" placeholder="aa" required="required" minlength="1"
+                            maxlength="2" />
+                    </div>
+                    <div class="block">
+                        <p class="title">Yıl</p>
+                        <input type="text" name="year" id="year" placeholder="yyyy" required="required" minlength="4"
+                            maxlength="4" />
+                    </div>
+                </div>
+                <div class="base">
+                    <div class="enter">
+                        <input type="button" name="Hesapla" value="Submit" onclick="age()" />
+                    </div>
+                </div>
+                <div id="age"></div>
+            </form>
+        </div>
+    </section>
+    <!-- Blog end -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
+<script>
+    function Hesapla() {
+        var sayi1 = parseInt(document.getElementById("sayi1").value);
+        var sayi2 = parseInt(document.getElementById("sayi2").value);
+        var islem = document.getElementById("islem").value;
+        var sonuc = 0;
+        console.log(sayi2)
+        console.log(sayi1)
+        console.log(islem)
+        if (isNaN(sayi1) || isNaN(sayi2)) {
+            swal({
+                title: "Hata!",
+                text: "Lütfen Sayıları Giriniz!",
+                icon: "error",
+            });
+            return false;
+        }
+        if (islem == "islemseciniz") {
+            swal({
+                title: "Hata!",
+                text: "Lütfen Bir İşlem Seçiniz!",
+                icon: "error",
+            });
+            return false;
+        } else {
+            if (islem == "topla") {
+                sonuc = sayi1 + sayi2;
+            } else if (islem == "cikar") {
+                sonuc = sayi1 - sayi2;
+            } else if (islem == "bol") {
+                sonuc = sayi1 / sayi2;
+            } else if (islem == "carp") {
+                sonuc = sayi1 * sayi2;
+            }
+            document.getElementById("sonuc").innerHTML = "Sonuç : " + sonuc;
+        }
+
+
+    }
+
+    function Dolar() {
+        var dolar = parseInt(document.getElementById("dolar").value);
+        var kur = parseInt(document.getElementById("kur").value);
+        var sonuc2 = 0;
+        if (isNaN(dolar) || isNaN(kur)) {
+            swal({
+                title: "Hata!",
+                text: "Lütfen Değerleri Giriniz!",
+                icon: "error",
+            });
+            return false;
+        }
+        sonuc2 = dolar * kur;
+        document.getElementById("sonuc2").innerHTML = dolar + " Dolar " + sonuc2 + "tl Tutarına Eşittir";
+    }
+
+    function age() {
+        var d1 = document.getElementById("date").value;
+        var m1 = document.getElementById("month").value;
+        var y1 = document.getElementById("year").value;
+        if(d1>31 || m1>12 || y1>2023 || d1<1 || m1<1){
+            swal({
+                title: "Hata!",
+                text: "Lütfen Doğru Değerler Giriniz!",
+                icon: "error",
+            });
+            return false;
+        }
+        var date = new Date();
+        var d2 = date.getDate();
+        console.log(d2)
+        var m2 = 1 + date.getMonth();
+        var y2 = date.getFullYear();
+        var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    
+        if (d1 > d2) {
+            d2 = d2 + month[m2 - 1];
+            m2 = m2 - 1;
+        }
+    
+        if (m1 > m2) {
+            m2 = m2 + 12;
+            y2 = y2 - 1;
+        }
+        var d = d2 - d1;
+        var m = m2 - m1;
+        var y = y2 - y1;
+        document.getElementById("age").innerHTML =
+            "Yaşamınız " + y + " Yıl " + m + " Ay " + d + " Gündür Devam Etmektedir! Nice Yıllara :)";
+    }
+</script>
+<style>
+    table,
+    tr,
+    td,
+    th {
+        border-collapse: collapse;
+        border: solid 1px black;
+        background-color: rgb(209, 175, 175);
+        color: white;
+        padding: 5px;
+    }
+
+    table {
+        padding-top: 100px;
+        margin: auto;
+        width: 300px;
+        height: 100px;
+    }
+
+    input {
+        font-size: 15px;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    th {
+        font-size: 30px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+
+    body {
+
+        background-image: url(./images/about-me-bckg.jpg);
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #2782e3;
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 0;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 520px;
+        height: auto;
+        margin: 100px auto;
+        background-color: #eee;
+        border-radius: 25px;
+    }
+
+    .base {
+        width: 100%;
+        margin: 0;
+        overflow: hidden;
+        display: block;
+        float: none;
+    }
+
+    .block {
+        width: 110px;
+        padding: 5px 20px;
+        margin-left: 20px;
+        margin-right: 10px;
+        display: inline-block;
+    }
+
+    .base h4 {
+        font-size: 26px;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: normal;
+        margin-top: 0px;
+        box-shadow: 0px 2px #bababa;
+        background: white;
+        font-size: 34px;
+        color: navy;
+    }
+
+    .title {
+        font-size: 20px;
+        text-align: left;
+        font-family: sans-serif;
+        font-weight: normal;
+        line-height: 0.5;
+        letter-spacing: 0.5px;
+        word-spacing: 2.7px;
+        color: #1073d0;
+    }
+
+    input[type="text"] {
+        width: 140px;
+        margin: auto;
+        outline: none;
+        min-height: 50px;
+        border: 2px solid #1073d0;
+        padding: 12px;
+        background-color: #f7f7f7;
+        border-radius: 2px;
+        color: #1073d0;
+        font-size: 17px;
+    }
+
+    input[type="text"]:focus {
+        background-color: #ffffff;
+        border: 2px solid orange;
+        outline: none;
+    }
+
+    input[type="button"] {
+        width: 150px;
+        margin-left: 35%;
+        margin-top: 40px;
+        outline: none;
+        border: none;
+        border-radius: 2px;
+        background-color: #0761b6;
+        color: #ffffff;
+        padding: 14px 16px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    input[type="button"]:hover {
+        background-color: #003669;
+    }
+
+    #age {
+        display: block;
+        margin: 10px;
+        margin-top: 35px;
+        padding: 10px;
+        padding-bottom: 20px;
+        overflow: hidden;
+        font-family: verdana;
+        font-size: 23px;
+        font-weight: normal;
+        line-height: 1.5;
+        word-spacing: 2.7px;
+        color: navy;
+    }
+</style>
